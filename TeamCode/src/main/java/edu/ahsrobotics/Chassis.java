@@ -2,7 +2,7 @@ package edu.ahsrobotics;
 
 import java.util.Timer;
 
-public class Chassis implements MotionRunner {
+public class Chassis{
 
     private DriveUnit RightFront;
     private DriveUnit LeftFront;
@@ -28,20 +28,25 @@ public class Chassis implements MotionRunner {
         RightBack.init();
     }
 
-    public void execute(Motion m){
+    public void StraitMotion(double Speed,double Distence){
+        RightBack.zeroDistance();
+        LeftBack.zeroDistance();
+        RightFront.zeroDistance();
+        LeftFront.zeroDistance();
 
-        double s_location = RightBack.getInchesTravelled();
-        StraightMotion s = (StraightMotion) m;
-        double test_distance = s.getDistance();
-        runTime = Math.log(Math.pow(10,test_distance)-1);
-        double startTime = System.currentTimeMillis();
+        boolean run = true;
+        While(run){
+            RightBack.setPower(Speed);
+            LeftBack.setPower(Speed);
+            RightFront.setPower(Speed);
+            LeftFront.setPower(Speed);
 
-        while(Math.abs(s_location)+test_distance>Math.abs(RightBack.getInchesTravelled())){
+            double TravledRight = RightFront.getInchesTravelled();
+            double TravledLeft = LeftFront.getInchesTravelled();
 
-            double desired_distance = controlDistance(System.currentTimeMillis()-startTime);
-            double actual_distance = RightBack.getInchesTravelled();
-            double error = desired_distance-actual_distance;
-
+            if(TravledRight => Distence || TravledLeft => Distence){
+                run = false;
+            }
         }
 
         RightBack.setPower(0);

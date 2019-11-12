@@ -26,6 +26,6 @@ public class BasicOpMode_AutoOne extends LinearOpMode {
         // Wait for the game to start (driver presses PLAY)
         waitForStart();
         runtime.reset();
-
+        PlanElementTest();
     }
 }
