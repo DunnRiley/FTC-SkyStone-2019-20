@@ -38,10 +38,10 @@ public class DriveUnit {
         motor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
     }
 
-    public void adjustPower(double error){
-        double k=1;
-        motor.setPower(motor.getPower()+k*error);
-    }
+//    public void adjustPower(double error){
+//        double k=1;
+//        motor.setPower(motor.getPower()+k*error);
+//    }
 
     //this method should return the distance travelled in inches
     public double getInchesTravelled(){

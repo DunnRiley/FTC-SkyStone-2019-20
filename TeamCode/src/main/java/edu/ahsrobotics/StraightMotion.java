@@ -5,11 +5,10 @@ public class StraightMotion extends Motion {
     private double motorPower;
     private double distance;
 
-    public StraightMotion(MotionRunner runner ,double motorPower, double distance){
-        super (runner);
+    public StraightMotion(double motorPower, double distance, double timeout){
         this.motorPower=motorPower;
         this.distance= distance;
-
+        this.timeout=timeout;
     }
 
     public double getMotorPower() {

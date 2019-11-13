@@ -9,9 +9,6 @@ public class Chassis implements MotionRunner {
     private DriveUnit RightBack;
     private DriveUnit LeftBack;
 
-    private double offset = 1.5;
-    private double vDilation = 1;
-    private double hDilation = 3;
     private double runTime;
 
 
@@ -51,17 +48,6 @@ public class Chassis implements MotionRunner {
         LeftBack.setPower(0);
         RightFront.setPower(0);
         LeftFront.setPower(0);
-    }
-
-//These return the distance we should have travelled in inches
-    private double rampUp(double time){
-        return vDilation*Math.log(1+Math.exp(hDilation*(time-offset)))-vDilation*Math.log(1+Math.exp(hDilation*(0-offset)));
-
-    }
-
-    private double rampDown(double time){
-        return -vDilation*Math.log(1+Math.exp(-(hDilation*(time-runTime)-offset)))+2*rampUp(runTime/2+offset);
-
     }
 
 }

@@ -47,15 +47,23 @@ public class BasicOpMode_Linear extends LinearOpMode {
             double LFD;
             double RFD;
 
-            double drive = -gamepad1.left_stick_y;
-            double turn  =  gamepad1.right_stick_x;
-            leftPower    = Range.clip(drive + turn, -1.0, 1.0) ;
-            rightPower   = Range.clip(drive - turn, -1.0, 1.0) ;
+            double drive = -gamepad1.right_stick_y;
+            double strafe  =  gamepad1.right_stick_x;
+            LBD = Range.clip(drive, -1.0, 1.0);
+            RBD = Range.clip(drive, -1.0, 1.0);
+            LFD = Range.clip(drive, -1.0, 1.0);
+            RFD = Range.clip(drive, -1.0, 1.0);
 
-            leftDrive.setPower(leftPower);
-            rightDrive.setPower(rightPower);
+            LBD = Range.clip(-strafe, -1.0, 1.0);
+            RBD = Range.clip(strafe, -1.0, 1.0);
+            LFD = Range.clip(strafe, -1.0, 1.0);
+            RFD = Range.clip(-strafe, -1.0, 1.0);
 
-
+            LBD.setPower(LBD);
+            RBD.setPower(RBD);
+            LFD.setPower(LFD);
+            RFD.setPower(RFD);
+            
             telemetry.addData("Status", "Run Time: " + runtime.toString());
             telemetry.addData("Motors", "left (%.2f), right (%.2f)", leftPower, rightPower);
             telemetry.update();
