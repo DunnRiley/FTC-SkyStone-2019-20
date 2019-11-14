@@ -54,13 +54,38 @@ public class Chassis{
         RightFront.setPower(0);
         LeftFront.setPower(0);
     }
+    public void CCWPivit(double speed,double Rotation){
 
-    public void Pivit(double speed,double Rotation){
+    }
+    public void CWPivit(double speed,double Rotation){
 
     }
 
     public void Strafe(double speed,double Rotation){
+        RightBack.zeroDistance();
+        LeftBack.zeroDistance();
+        RightFront.zeroDistance();
+        LeftFront.zeroDistance();
 
+        boolean run = true;
+        While(run){
+            RightBack.setPower(-Speed);
+            LeftBack.setPower(Speed);
+            RightFront.setPower(-Speed);
+            LeftFront.setPower(Speed);
+
+            double TravledRight = RightFront.getInchesTravelled();
+            double TravledLeft = LeftFront.getInchesTravelled();
+
+            if(TravledRight => Distence || TravledLeft => Distence){
+                run = false;
+            }
+        }
+
+        RightBack.setPower(0);
+        LeftBack.setPower(0);
+        RightFront.setPower(0);
+        LeftFront.setPower(0);
     }
 
     public void Arc(double speed,double Rotation){
