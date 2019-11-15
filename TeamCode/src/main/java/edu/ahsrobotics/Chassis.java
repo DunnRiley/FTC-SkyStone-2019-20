@@ -54,11 +54,10 @@ public class Chassis{
         RightFront.setPower(0);
         LeftFront.setPower(0);
     }
-
-    public void CWPivit(double speed,double Rotation){
+    public void CCWPivit(double speed,double Rotation){
 
     }
-    public void CCWPivit(double speed,double Rotation){
+    public void CWPivit(double speed,double Rotation){
 
     }
 
