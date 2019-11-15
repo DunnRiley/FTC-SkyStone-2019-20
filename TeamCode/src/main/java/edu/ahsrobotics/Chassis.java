@@ -55,5 +55,17 @@ public class Chassis{
         LeftFront.setPower(0);
     }
 
+    public void Pivit(double speed,double Rotation){
+
+    }
+
+    public void Strafe(double speed,double Rotation){
+
+    }
+
+    public void Arc(double speed,double Rotation){
+
+}
+
 }
 

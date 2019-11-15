@@ -23,9 +23,10 @@ public class BasicOpMode_AutoOne extends LinearOpMode {
         FTCUtilities.setOpMode(this);
         Robot robot = new Robot();
         robot.init();
+        TestPlan testplan = new testplan(robot);
         // Wait for the game to start (driver presses PLAY)
         waitForStart();
         runtime.reset();
-        PlanElementTest();
+        testplan.run();
     }
 }
