@@ -1,5 +1,3 @@
-package edu.ahsrobotics;
-
 import java.util.Timer;
 
 public class Chassis{
@@ -17,6 +15,7 @@ public class Chassis{
         this.LeftFront= new DriveUnit(1,4,"LeftFront",true);
         this.RightBack= new DriveUnit(1,4,"RightBack",false);
         this.LeftBack= new DriveUnit(1,4,"LeftBack",true);
+
     }
 
 
@@ -54,11 +53,43 @@ public class Chassis{
         RightFront.setPower(0);
         LeftFront.setPower(0);
     }
-    public void CCWPivit(double speed,double Rotation){
 
-    }
-    public void CWPivit(double speed,double Rotation){
+    private void rotate(int degrees, double power){
+        double  leftPower, rightPower;
 
+        resetAngle();
+
+        if (degrees < 0)
+        {   // turn right.
+            leftPower = power;
+            rightPower = -power;
+        }
+        else if (degrees > 0)
+        {   // turn left.
+            leftPower = -power;
+            rightPower = power;
+        }
+        else return;
+
+        RightFront.setPower(rightPower);
+        LeftFront.setPower(leftPower);
+        RightBack.setPower(rightPower);
+        LeftBack.setPower(leftPower);
+
+        if (degrees < 0)
+        {
+            while (opModeIsActive() && getAngle() == 0) {}
+            while (opModeIsActive() && getAngle() > degrees) {}
+        }
+        else    // left turn.
+            while (opModeIsActive() && getAngle() < degrees) {}
+
+        RightFront.setPower(0);
+        LeftFront.setPower(0);
+        RightBack.setPower(0);
+        LeftBack.setPower(0);
+
+        resetAngle();
     }
 
     public void Strafe(double speed,double Rotation){
@@ -70,7 +101,7 @@ public class Chassis{
         boolean run = true;
         While(run){
             RightBack.setPower(-Speed);
-            LeftBack.setPower(Speed);
+            LeftBack.shetPower(Speed);
             RightFront.setPower(-Speed);
             LeftFront.setPower(Speed);
 
