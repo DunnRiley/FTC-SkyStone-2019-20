@@ -1,5 +1,3 @@
-package edu.ahsrobotics;
-
 import java.util.Iterator;
 
 public class Robot {

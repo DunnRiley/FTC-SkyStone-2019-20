@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/AHS-Robotics-master.iml" filepath="$PROJECT_DIR$/AHS-Robotics-master.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/BackCountry2019-20.iml" filepath="$PROJECT_DIR$/.idea/modules/BackCountry2019-20.iml" group="BackCountry2019-20" />
+      <module fileurl="file://$PROJECT_DIR$/FTC-SkyStone-2019-20.iml" filepath="$PROJECT_DIR$/FTC-SkyStone-2019-20.iml" />
     </modules>
   </component>
 </project>
